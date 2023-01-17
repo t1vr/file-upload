@@ -1,0 +1,2 @@
+- Update Pm api implemented and integrated
+- GetPmSerialNoNumberUniqueStatus API implemented
