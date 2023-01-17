@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FileUploadPlaygroundProject.Data;
+using FileUploadPlaygroundProject.Models;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Jpeg;
@@ -36,7 +38,7 @@ namespace FileUploadPlaygroundProject.Services
             return await GetImageData(id, "Thumbnail");
         }
 
-
+        //Not completed yet
         private async Task<Stream> GetImageData(Guid id, string size)
         {
             var database = _dbContext.Database;
@@ -109,28 +111,6 @@ namespace FileUploadPlaygroundProject.Services
                 Quality = 75
             });
             return memoryStream.ToArray();
-        }
-    }
-
-    public class ImageData
-    {
-        public ImageData() => Id = Guid.NewGuid();
-
-        public Guid Id { get; set; }
-        public string OriginalFileName { get; set; }
-        public string OriginalType { get; set; }
-        public byte[] OriginalContent { get; set; }
-        public byte[] ThumbnailContent { get; set; }
-        public byte[] FullscreenContent { get; set; }
-
-    }
-
-    public class ApplicationDbContext : DbContext
-    {
-        public DbSet<ImageData> ImageData { get; set; }
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        {
-
         }
     }
 }

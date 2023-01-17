@@ -1,4 +1,5 @@
-﻿using FileUploadPlaygroundProject.Services;
+﻿using FileUploadPlaygroundProject.Models;
+using FileUploadPlaygroundProject.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FileUploadPlaygroundProject.Controllers
